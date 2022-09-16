@@ -60,12 +60,17 @@
 
 .name img {
     display: inline;
-    margin-left: 240px;
+    margin-left: 260px;
     width: 20px;
 }
 
 .postImg {
     height: 200px;
+}
+
+.postImg img {
+    height: 200px;
+    width: 400px;
 }
 
 .likeshare img {
@@ -82,7 +87,7 @@
 
 .likeshare div p {
     margin-top: 10px;
-    margin-left: 230px;
+    margin-left: 220px;
 }
 
 .likeshare>p {
