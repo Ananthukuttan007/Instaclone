@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './PostView.css'
+import { useNavigate } from 'react-router-dom';
+
 
 function PostView() {
     const [state, setState] = useState([]);
+    const navigate = useNavigate()
     function toMonthName(monthNumber) {
         const date = new Date();
         date.setMonth(monthNumber - 1);
@@ -31,7 +34,7 @@ function PostView() {
             <div className="navBar">
                 <img className='logoImg' src="images/icon.svg" alt="logo" />
                 <h1 className='logo'>Instaclone</h1>
-                <img className='camera' src="images/camera.png" alt="camera" />
+                <img onClick={() => navigate('/post')} className='camera' src="images/camera.png" alt="camera" />
             </div>
             {state.map(user => {
                 return (

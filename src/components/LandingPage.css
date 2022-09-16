@@ -35,3 +35,7 @@
     color: #006238;
     opacity: 1;
 }
+
+input #file-upload-button {
+    display: none;
+}
