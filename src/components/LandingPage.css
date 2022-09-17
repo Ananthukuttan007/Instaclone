@@ -36,6 +36,8 @@
     opacity: 1;
 }
 
-input #file-upload-button {
-    display: none;
+.enter:hover {
+    background-color: #006238;
+    color: white;
+    cursor: pointer;
 }

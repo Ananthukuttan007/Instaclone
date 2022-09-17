@@ -16,7 +16,7 @@ function PostView() {
         });
     }
     useEffect(() => {
-        fetch('http://localhost:3004/user', {
+        fetch('http://localhost:8080/', {
             method: 'GET', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

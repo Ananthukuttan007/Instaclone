@@ -26,6 +26,11 @@
     margin-top: 20px;
 }
 
+.camera:hover {
+    background-color: rgb(239, 238, 238);
+    border-radius: 1%;
+}
+
 .post {
     width: 400px;
     margin: 40px auto;
