@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './PostView.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 
 function PostView() {
@@ -16,18 +17,14 @@ function PostView() {
         });
     }
     useEffect(() => {
-        fetch('http://localhost:8080/', {
-            method: 'GET', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            // body: JSON.stringify(user),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setState(data);
-                console.log(data);
+        axios.get('http://localhost:8080/')
+            .then(function (response) {
+                setState(response.data);
+                console.log(response);
             })
+            .catch(function (error) {
+                console.log(error);
+            });
     }, [])
     return (
         <>
@@ -37,6 +34,10 @@ function PostView() {
                 <img onClick={() => navigate('/post')} className='camera' src="images/camera.png" alt="camera" />
             </div>
             {state.map(user => {
+                let base64String = btoa(
+                    String.fromCharCode(...new Uint8Array((user.PostImage.data.data)))
+                );
+                console.log(base64String);
                 return (
                     <>
                         <div className='post'>
@@ -48,7 +49,7 @@ function PostView() {
                                 <img src="images/more_icon.svg" alt="" />
                             </div>
                             <div className="postImg">
-                                <img src={user.PostImage} alt="" />
+                                <img src={`data:image/png;base64,${base64String}`} alt="PostedImage" />
                             </div>
                             <div className="likeshare">
                                 <div>
