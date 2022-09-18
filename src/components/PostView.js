@@ -17,9 +17,9 @@ function PostView() {
         });
     }
     useEffect(() => {
-        axios.get('http://localhost:8080/')
+        axios.get('https://anantha-1998-mern-app.herokuapp.com/')
             .then(function (response) {
-                setState(response.data);
+                setState(response.data.reverse());
                 console.log(response);
             })
             .catch(function (error) {

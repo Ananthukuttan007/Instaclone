@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './Post.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function Post() {
-
+    const navigate = useNavigate()
     const [fileName, setFileName] = useState("No File Chosen");
     const [file, setFile] = useState({});
     const [name, setName] = useState("");
@@ -20,12 +21,15 @@ function Post() {
         DATA.append('date', new Date().toLocaleDateString())
         DATA.append('likes', parseInt(Math.random() * 10))
 
-        axios.post('http://localhost:8080/post', DATA)
+        axios.post('https://anantha-1998-mern-app.herokuapp.com/post', DATA)
             .then(function (response) {
                 console.log(response);
+                alert('success');
+                navigate('/PostView')
             })
             .catch(function (error) {
                 console.log(error);
+                alert('error')
             });
     }
     return (
